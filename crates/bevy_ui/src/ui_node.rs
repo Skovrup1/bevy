@@ -50,14 +50,8 @@ impl Node {
     pub fn physical_rect(&self, transform: &GlobalTransform, scale_factor: f32) -> Rect {
         let rect = self.logical_rect(transform);
         Rect {
-            min: Vec2::new(
-                rect.min.x * scale_factor,
-                rect.min.y * scale_factor,
-            ),
-            max: Vec2::new(
-                rect.max.x * scale_factor,
-                rect.max.y * scale_factor,
-            ),
+            min: Vec2::new(rect.min.x * scale_factor, rect.min.y * scale_factor),
+            max: Vec2::new(rect.max.x * scale_factor, rect.max.y * scale_factor),
         }
     }
 }

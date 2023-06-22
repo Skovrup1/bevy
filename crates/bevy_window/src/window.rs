@@ -299,7 +299,7 @@ impl Window {
     pub fn cursor_position(&self) -> Option<Vec2> {
         self.internal
             .physical_cursor_position
-            .map(|position| (position / self.scale_factor() as f64).as_vec2())
+            .map(|position| position.as_vec2() / self.scale_factor())
     }
 
     /// The cursor position in this window in physical pixels.
@@ -319,7 +319,7 @@ impl Window {
     /// See [`WindowResolution`] for an explanation about logical/physical sizes.
     pub fn set_cursor_position(&mut self, position: Option<Vec2>) {
         self.internal.physical_cursor_position =
-            position.map(|p| p.as_dvec2() * self.scale_factor() as f64);
+            position.map(|p| (p * self.scale_factor()).as_dvec2());
     }
 
     /// Set the cursor position in this window in physical pixels.
@@ -647,8 +647,8 @@ impl WindowResolution {
     #[inline]
     pub fn set(&mut self, width: f32, height: f32) {
         self.set_physical_resolution(
-            (width as f32 * self.scale_factor()) as u32,
-            (height as f32 * self.scale_factor()) as u32,
+            (width * self.scale_factor()) as u32,
+            (height * self.scale_factor()) as u32,
         );
     }
 

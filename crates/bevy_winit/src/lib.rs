@@ -515,7 +515,9 @@ pub fn winit_runner(mut app: App) {
                         }
                     },
                     WindowEvent::Touch(touch) => {
-                        let location = touch.location.to_logical(window.resolution.scale_factor() as f64);
+                        let location = touch
+                            .location
+                            .to_logical(window.resolution.scale_factor() as f64);
 
                         // Event
                         input_events
@@ -551,7 +553,7 @@ pub fn winit_runner(mut app: App) {
                             // the new_inner_size should take those into account
                             *new_inner_size =
                                 winit::dpi::LogicalSize::new(window.width(), window.height())
-                                    .to_physical::<u32>(forced_factor.into());
+                                    .to_physical::<u32>(forced_factor as f64);
                             // TODO: Should this not trigger a WindowsScaleFactorChanged?
                         } else if approx::relative_ne!(new_factor, prior_factor) {
                             // Trigger a change event if they are approximately different
