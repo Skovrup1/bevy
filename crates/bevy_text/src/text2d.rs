@@ -206,6 +206,6 @@ pub fn update_text2d_layout(
     }
 }
 
-pub fn scale_value(value: f32, factor: f64) -> f32 {
-    (value as f64 * factor) as f32
+pub fn scale_value(value: f32, factor: f32) -> f32 {
+    value * factor
 }

@@ -228,7 +228,7 @@ pub struct WindowScaleFactorChanged {
     /// Window that had it's scale factor changed.
     pub window: Entity,
     /// The new scale factor.
-    pub scale_factor: f64,
+    pub scale_factor: f32,
 }
 
 /// An event that indicates a window's OS-reported scale factor has changed.
@@ -243,7 +243,7 @@ pub struct WindowBackendScaleFactorChanged {
     /// Window that had it's scale factor changed by the backend.
     pub window: Entity,
     /// The new scale factor.
-    pub scale_factor: f64,
+    pub scale_factor: f32,
 }
 
 /// Events related to files being dragged and dropped on a window.

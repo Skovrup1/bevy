@@ -66,10 +66,9 @@ pub(crate) fn create_window<'a>(
         if let Some(theme) = winit_window.theme() {
             window.window_theme = Some(convert_winit_theme(theme));
         }
-
         window
             .resolution
-            .set_scale_factor(winit_window.scale_factor());
+            .set_scale_factor(winit_window.scale_factor() as f32);
         commands
             .entity(entity)
             .insert(RawHandleWrapper {
