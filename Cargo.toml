@@ -974,6 +974,10 @@ wasm = false
 name = "audio"
 path = "examples/audio/audio.rs"
 
+[[example]]
+name = "sinewave"
+path = "examples/audio/sinewave.rs"
+
 [package.metadata.example.audio]
 name = "Audio"
 description = "Shows how to load and play an audio file"
